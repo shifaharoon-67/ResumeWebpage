@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shifa Haroon | Resume</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg-main: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    --left-bg: linear-gradient(180deg,#8360c3,#2ebf91);
+    --right-bg:#f7f7f7;
+    --card:#ffffff;
+    --text:#2d3436;
+    --accent:#6c5ce7;
+}
+
+body.dark{
+    --bg-main: linear-gradient(135deg,#000428,#004e92);
+    --right-bg:#1e1e2f;
+    --card:#2c2c3e;
+    --text:#ecf0f1;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:var(--bg-main);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-x:hidden;
+    color:var(--text);
+}
+
+/* Scroll Progress */
+#progress{
+    position:fixed;
+    top:0;left:0;
+    height:5px;
+    background:#ffd369;
+    width:0%;
+    z-index:999;
+}
+
+/* Toggle */
+.toggle{
+    position:fixed;
+    top:15px;right:20px;
+    background:#fff;
+    padding:8px 14px;
+    border-radius:30px;
+    cursor:pointer;
+    z-index:1000;
+}
+
+/* Floating icons */
+.float{
+    position:fixed;
+    font-size:22px;
+    opacity:0.6;
+    animation:float 4s ease-in-out infinite;
+}
+.float:nth-child(1){left:8%;top:20%;}
+.float:nth-child(2){right:10%;top:35%;}
+.float:nth-child(3){left:12%;bottom:18%;}
+
+@keyframes float{
+    50%{transform:translateY(-15px);}
+}
+
+/* Main Card */
+.resume{
+    width:95%;
+    max-width:1200px;
+    min-height:95vh;
+    background:#fff;
+    border-radius:25px;
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    overflow:hidden;
+    box-shadow:0 25px 45px rgba(0,0,0,0.3);
+    animation:fadeUp 1s ease;
+}
+
+/* LEFT */
+.left{
+    background:var(--left-bg);
+    color:#fff;
+    padding:40px 30px;
+}
+
+.profile{
+    text-align:center;
+}
+
+.profile img{
+    width:160px;height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #fff;
+}
+
+.profile h1{
+    margin-top:15px;
+    font-size:28px;
+}
+
+.cursor{animation:blink 1s infinite;}
+@keyframes blink{50%{opacity:0;}}
+
+.social{
+    margin-top:15px;
+}
+.social a{
+    margin:0 8px;
+    color:#fff;
+    font-size:22px;
+    text-decoration:none;
+}
+
+.left-box{
+    background:rgba(255,255,255,0.18);
+    padding:18px;
+    border-radius:15px;
+    margin-top:20px;
+    transition:.3s;
+}
+.left-box:hover{transform:translateY(-6px);}
+
+/* RIGHT */
+.right{
+    background:var(--right-bg);
+    padding:40px;
+}
+
+.section{
+    margin-bottom:30px;
+}
+
+.section h2{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.icon-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* Timeline */
+.timeline{
+    border-left:4px solid var(--accent);
+    padding-left:20px;
+}
+.timeline-item{
+    margin-bottom:15px;
+    position:relative;
+}
+.timeline-item::before{
+    content:"";
+    width:14px;height:14px;
+    background:var(--accent);
+    border-radius:50%;
+    position:absolute;
+    left:-30px;top:5px;
+}
+
+/* Skills */
+.skill{
+    margin-bottom:15px;
+}
+.skill span{
+    font-weight:600;
+}
+.bar{
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+    height:10px;
+}
+.fill{
+    height:100%;
+    width:0;
+    background:var(--accent);
+    animation:fill 2s forwards;
+}
+@keyframes fill{
+    to{width:var(--w);}
+}
+
+/* Download */
+.download{
+    text-align:center;
+}
+.download a{
+    background:var(--accent);
+    color:#fff;
+    padding:14px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* Footer */
+.footer{
+    grid-column:1/3;
+    background:linear-gradient(135deg,#141E30,#243B55);
+    color:#fff;
+    padding:20px;
+    text-align:center;
+}
+
+.footer-content{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.footer-content img{
+    height:45px;
+    background:#fff;
+    padding:5px;
+    border-radius:8px;
+}
+
+/* Animations */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .resume{grid-template-columns:1fr;}
+    .footer{grid-column:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="progress"></div>
+<div class="toggle" onclick="toggleTheme()">🌙</div>
+
+<div class="float">💻</div>
+<div class="float">⚙️</div>
+<div class="float">☁️</div>
+
+<div class="resume">
+
+<!-- LEFT -->
+<div class="left">
+    <div class="profile">
+        <img src="profile.jpg">
+        <h1><span id="type"></span><span class="cursor">|</span></h1>
+        <p>Bachelor of Computer Applications</p>
+
+        <div class="social">
+            <a href="https://github.com/" target="_blank">🐱</a>
+            <a href="https://linkedin.com/" target="_blank">💼</a>
+        </div>
+    </div>
+
+    <div class="left-box">
+        <h3>Contact</h3>
+        <p>📧 shifaharoon67@gmail.com</p>
+    </div>
+</div>
+
+<!-- RIGHT -->
+<div class="right">
+
+    <div class="section">
+        <h2 class="icon-title">👩‍🎓 Education</h2>
+        <div class="timeline">
+            <div class="timeline-item">BCA – Indus Valley Degree College</div>
+            <div class="timeline-item">PUC – Cambridge PU College</div>
+            <div class="timeline-item">SSLC – Samuel Public School</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="icon-title">🛠 Skills</h2>
+
+        <div class="skill">
+            <span>HTML & CSS</span>
+            <div class="bar"><div class="fill" style="--w:85%"></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Python</span>
+            <div class="bar"><div class="fill" style="--w:75%"></div></div>
+        </div>
+
+        <div class="skill">
+            <span>Java</span>
+            <div class="bar"><div class="fill" style="--w:70%"></div></div>
+        </div>
+    </div>
+
+    <div class="download">
+        <a href="Shifa_Haroon_Resume.pdf" download>📄 Download Resume</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="footer-content">
+        <img src="imtda-logo.png">
+        <div>
+            <strong>IMTDA Infotech Private Limited</strong><br>
+            <a href="https://www.imtdainfotech.com" target="_blank" style="color:#ffd369;">
+                www.imtdainfotech.com
+            </a>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script>
+/* Typing */
+const text="Shifa Haroon";
+let i=0;
+(function type(){
+    if(i<text.length){
+        document.getElementById("type").innerHTML+=text.charAt(i++);
+        setTimeout(type,120);
+    }
+})();
+
+/* Scroll progress */
+window.addEventListener("scroll",()=>{
+    let h=document.documentElement;
+    document.getElementById("progress").style.width=
+    (h.scrollTop/(h.scrollHeight-h.clientHeight))*100+"%";
+});
+
+/* Dark mode memory */
+function toggleTheme(){
+    document.body.classList.toggle("dark");
+    localStorage.setItem("theme",
+        document.body.classList.contains("dark")?"dark":"light");
+}
+if(localStorage.getItem("theme")==="dark"){
+    document.body.classList.add("dark");
+}
+</script>
+
+</body>
+</html>
